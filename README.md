@@ -28,3 +28,6 @@ Please reach out to the TAs if you have any installation issues.
 
 2. Navigate to xv6-riscv and run `make qemu`
 
+## Acknowledgement
+
+We remain thankful to the xv6 team at MIT for their open-source codebase. 
