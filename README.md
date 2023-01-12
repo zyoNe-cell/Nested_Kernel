@@ -1,47 +1,30 @@
-# cse536-release
+# CSE 536: Getting Started
 
-## Installing xv6 pre-requisites 
+In ASU's Advanced Operating System course (CSE 536), we are using the xv6 Operating System for programming assignments. xv6 is a teaching-focused OS designed by some incredible folks at MIT ([link](https://github.com/mit-pdos/xv6-riscv.git)). This README explains how to setup QEMU and a GNU RISC-V toolchain, needed for running xv6, as well how to boot up a QEMU VM with xv6.
 
-### Linux/WSL
+## A. Installing xv6 pre-requisites 
 
-- Navigate to the install/linux-wsl folder
+Please reach out to the TAs if you have any installation issues.
 
-- Install RISC-V QEMU
+#### Linux/WSL
 
-        ./linux-qemu.sh
+1. Navigate to the install/linux-wsl folder
+2. Install RISC-V QEMU: `./linux-qemu.sh`
+3. Install RISC-V toolchain:`./linux-toolchain.sh`
+4. Add installed binaries to path: `source .add-linux-paths`
 
-- Install RISC-V toolchain using
-    
-        ./linux-toolchain.sh
+#### MacOS
 
-- Add installed binaries to path
-    
-        source .add-linux-paths
+1. Navigate to the install/mac folder
+2. Install RISC-V QEMU: `./mac-qemu.sh`
+3. Install RISC-V toolchain: `./mac-toolchain.sh`
+4. Add installed binaries to path: `source .add-mac-paths`
 
+## B. Running the xv6 OS
 
-### MacOS
-
-- Navigate to the install/mac folder
-
-- Install RISC-V QEMU
-
-        ./mac-qemu.sh
-
-- Install RISC-V toolchain using
-    
-        ./mac-toolchain.sh
-
-- Add installed binaries to path
-    
-        source .add-mac-paths
-
-## Running xv6 OS
-
-- Navigate back to main folder and clone the xv6 OS using 
+1. Navigate back to main folder and clone the xv6 OS using 
 
         git clone https://github.com/mit-pdos/xv6-riscv.git
 
-- Navigate to xv6-riscv and run
-
-        make qemu
+2. Navigate to xv6-riscv and run `make qemu`
 
