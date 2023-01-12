@@ -2,7 +2,7 @@
 
 # Add RISC-V QEMU and toolchain to path
 pushd ../
-	QEMU_PATH=`pwd`/riscv-qemu/objdir
+	QEMU_PATH=`pwd`/qemu/objdir
 	TOOLCHAIN_PATH=`pwd`/riscv-gnu-toolchain/build/bin
 
 	# Make sure the folders exist

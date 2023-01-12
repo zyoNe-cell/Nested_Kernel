@@ -21,7 +21,7 @@ pushd ../
         mkdir objdir
         pushd objdir
             ../configure --target-list=riscv64-softmmu
-            make -j
+            make -j `sysctl -n hw.ncpu`
         popd
     popd
 popd

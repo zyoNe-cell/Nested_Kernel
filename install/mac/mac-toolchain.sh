@@ -20,6 +20,6 @@ pushd ../
     pushd riscv-gnu-toolchain
         mkdir build
         ./configure --prefix=`pwd`/build
-        make -j`nproc`
+        make -j `sysctl -n hw.ncpu`
     popd
 popd
