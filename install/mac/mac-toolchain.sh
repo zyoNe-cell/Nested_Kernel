@@ -19,7 +19,7 @@ pushd ../
 
     pushd riscv-gnu-toolchain
         mkdir build
-        ./configure --prefix=`pwd`/build
+        ./configure --prefix=`pwd`/build --with-libgmp=/opt/homebrew/lib/
         make -j `sysctl -n hw.ncpu`
     popd
 popd
