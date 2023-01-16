@@ -13,7 +13,7 @@ pushd ../
 		return 0
 	elif [ ! -d $TOOLCHAIN_PATH ];
 	then
-		echo "Please install toolchain by running ./linux-qemu.sh"
+		echo "Please install toolchain by running ./linux-toolchain.sh"
 		popd
 		return 0
 	fi
