@@ -28,6 +28,16 @@ Please reach out to the TAs if you have any installation issues.
 
 2. Navigate to xv6-riscv and run `make qemu`
 
+## C. FAQs
+
+1. While running linux-qemu.sh, if you run into `ERROR: glib-2.48 gthread-2.0 is required to compile QEMU`, then :
+
+- Run this command in the terminal.  `sudo apt install libglib2.0-dev`. This is caused due to a newer version of your linux distro([link](https://github.com/Xilinx/qemu/issues/40)). 
+
+2. linus-qemu.sh : `../meson.build:328:2: ERROR: Dependency "pixman-1" not found, tried pkgconfig`
+
+- Can be resolved by running `sudo apt install libpixman-1-dev` ([link](https://stackoverflow.com/a/39916441))
+
 ## Acknowledgement
 
 We remain thankful to the xv6 team at MIT for their open-source codebase. 
