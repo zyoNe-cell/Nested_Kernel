@@ -1,4 +1,4 @@
-# CSE 536: (Assignment 1) A Tale of a BIOS and a Bootloader
+# CSE 536: (Assignment 1) A Tale of a Boot ROM and a Bootloader
 
 Please refer to the assignment handout posted on Canvas for a list of tasks.
 
