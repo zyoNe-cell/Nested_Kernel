@@ -32,11 +32,6 @@ exec(char *path, char **argv)
   pagetable_t pagetable = 0, oldpagetable;
   struct proc *p = myproc();
 
-  /* CSE 536: (2.1) Check on-demand status. */
-  if (p->ondemand == true) {
-    print_ondemand_proc(path);
-  }
-
   begin_op();
 
   if((ip = namei(path)) == 0){
@@ -134,15 +129,6 @@ exec(char *path, char **argv)
   p->trapframe->epc = elf.entry;  // initial program counter = main
   p->trapframe->sp = sp; // initial stack pointer
   proc_freepagetable(oldpagetable, oldsz);
-
-  // CSE 536: Clear all heap track regions
-  for (int i = 0; i < MAXHEAP; i++) {
-    p->heap_tracker[i].addr            = 0xFFFFFFFFFFFFFFFF;
-    p->heap_tracker[i].startblock      = -1;
-    p->heap_tracker[i].last_load_time  = 0xFFFFFFFFFFFFFFFF;
-    p->heap_tracker[i].loaded          = false;
-  }
-  p->resident_heap_pages = 0;
 
   return argc; // this ends up in a0, the first argument to main(argc, argv)
 
