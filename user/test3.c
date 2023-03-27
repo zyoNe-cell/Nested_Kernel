@@ -16,7 +16,7 @@ char stacks[PGSIZE*MAXULTHREADS];
 
 /* Simple example that allocates heap memory and accesses it. */
 void ul_start_func(int a1) {
-    printf("[.] started the thread function (tid = %d, a1 = %d) \n", 0, a1);
+    printf("[.] started the thread function (tid = %d, a1 = %d) \n", get_current_tid(), a1);
 
     /* Notify for a thread exit. */
     ulthread_destroy();
