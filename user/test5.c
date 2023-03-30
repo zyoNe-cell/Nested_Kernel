@@ -23,18 +23,17 @@ uint64 get_current_time(void) {
 void ul_start_func(int a1) {
     printf("[.] started the thread function (tid = %d, a1 = %d) \n", 
         get_current_tid(), a1);
-    
+
     uint64 start_time = get_current_time();
     uint64 prev_time = start_time;
 
-    int scheduling_rounds = 0;
-    while (scheduling_rounds < 5) {
-        /* If 10000 cycles have passed, yield the CPU. */
-        if ((get_current_time() - prev_time) >= 10000) {
-            ulthread_yield();
-            /* Get time using ctime() */
-            prev_time = get_current_time();
-            scheduling_rounds++;
+    /* Execute for a really long period */
+    for (int i = 0; i < 10000000; i++) {
+        if (i%1000000 == 0) {
+            if ((get_current_time() - prev_time) >= 10000) { 
+                ulthread_yield();
+                prev_time = get_current_time();
+            }
         }
     }
 
@@ -49,16 +48,20 @@ main(int argc, char *argv[])
     memset(&stacks, 0, sizeof(stacks));
 
     /* Initialize the user-level threading library */
-    ulthread_init(ROUNDROBIN);
+    ulthread_init(PRIORITY);
 
     /* Create a user-level thread */
     uint64 args[6] = {1,1,1,1,0,0};
     for (int i = 0; i < 3; i++)
-        ulthread_create((uint64) ul_start_func, (uint64) (stacks+((i+1)*PGSIZE)), args, -1);
+        ulthread_create((uint64) ul_start_func, (uint64) (stacks+((i+1)*PGSIZE)), args, i%5);
+
+    printf ("Current clock cyles are: %d\n", ctime());
 
     /* Schedule all of the threads */
-    ulthread_schedule();
+    ulthread_schedule_all();
 
-    printf("[*] User-Level Threading Test #4 (RR Collaborative) Complete.\n");
+    printf ("Current clock cyles are: %d\n", ctime());
+
+    printf("[*] User-Level Threading Test #5 (Arguments Checking) Complete.\n");
     return 0;
 }
