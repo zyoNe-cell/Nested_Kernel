@@ -22,3 +22,6 @@ bootloader/bootloader
 kernel/kernel*
 user/usys.S
 .gdbinit
+
+user/vm-test
+vm/vm
