@@ -1,4 +1,4 @@
-# CSE 536: Assignment 3: User-Level Thread Management
+# CSE 536: Assignment 4: Trap and Emulate Virtualization
 
 Please refer to the handout on Canvas.
 
