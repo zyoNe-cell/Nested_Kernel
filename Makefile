@@ -314,7 +314,7 @@ qemu: $K/kernel $V/vm fs.img
 .gdbinit: .gdbinit.tmpl-riscv
 	sed "s/:1234/:$(GDBPORT)/" < $^ > $@
 
-qemu-gdb: $K/kernel $K/kernel2 .gdbinit fs.img
+qemu-gdb: $K/kernel $V/vm .gdbinit fs.img
 	@echo "*** Now run 'gdb' in another window." 1>&2
 	$(QEMU) $(QEMUOPTS) -S $(QEMUGDB)
 
