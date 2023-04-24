@@ -32,6 +32,8 @@ void* kalloc(void) {
 
 void usertrap(void) {
   /* traps here when back from the userspace code. */
+  p.trapframe->epc += 4;
+  w_sepc((uint64) p.trapframe->epc);
   asm("sret");
   while (true);
 }
