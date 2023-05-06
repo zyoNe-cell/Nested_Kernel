@@ -25,7 +25,7 @@ Requirments for secure logging: Create logs of all syscalls executed by applicat
 2. Should contain: <time, syscall number, args, and process name>.
 3. Call the SM to protect syscall data as soon as it is created
 
-We need to define the way of "protect" , "created" in where? , the detailed semantic meaning of "As soon as"  in my system.
+Analysis: We need to define the way of "protect" , "created" in where? , the detailed semantic meaning of "As soon as"  in my system.
 
 
 
@@ -35,36 +35,31 @@ We need to define the way of "protect" , "created" in where? , the detailed sema
 2)PMP: If PMP can protect 
 
 
+
 **#Design Considerations:(Draft, In devising, process of thinking)**
 1.Responsibilities' dividing of the systems:
 
-1) Should OS partly participates on storing the logs, or leave whole job to SM by trapped into SM?
-    Alternatity one: a)If Secure monitor do the whole jobs: it need 
-
-2). Secure Monitor configured PMP at the time of after booting in;
-
-
-3).Basic functions/components of SM:
-    a) Except aboves, what else need 1) booting the kernel(the ordinaray kernel), (Feature: Checking the intergerity of loading kernel by SM)   2)       3) others.
-
-
+    1) Should OS partly participates on storing the logs, or leave whole job to SM by trapped into SM?
+        Alternatity one: a)If Secure monitor do the whole jobs: it need .....
+    2). Secure Monitor configured PMP at the time of after booting in;
+    3).Basic functions/components of SM:
+        a) Except aboves, what else need 1) booting the kernel(the ordinaray kernel), (Feature: Checking the intergerity of loading kernel by SM)2)..
 
 2. Designing with more details on logging:
-1)The process/steps of logging:
-     Trapped into SM when system calling happens -> Based on values in a0(or a7)
-
-2)
+    1)The process/steps of logging:
+         Trapped into SM when system calling happens -> Based on values in a0(or a7)
+    2)
 
 3. The privileged level and visibility of SM, and concerns on the transistions between modes;
-1)Secure monitor can access and write every variables or read-only data in all users' programs and kernel, but can only write the PMP
+    1)Secure monitor can access and write every variables or read-only data in all users' programs and kernel, but can only write the PMP
 
 4. Gurantees on the logs:
-Secure the log entires in buffer: PMP, 
+    Secure the log entires in buffer: PMP, 
 
 
 5. Others considerations:
-1.Should tHe SM exclusively holds an new page table which is different from the kernel's?
-2.File structure of log files, and data structure of log entires in an log file.
+    1).Should tHe SM exclusively holds an new page table which is different from the kernel's?
+    2).File structure of log files, and data structure of log entires in an log file.
 
 +: Remote attestation:
 
