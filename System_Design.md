@@ -2,22 +2,22 @@
 
 Secure Monitor async securely store logs logging by using PMP
 
-
-#Limitations:
+**
+#Limitations:**
 1. Designs are based on single-thread scenario.
 
 
-#Component included:
+**#Component included:**
+
 1.Storage of logs:
 -Log entry： <time, syscall number, args, and process name>
 -File Struct: <>
 
 2.Base of SM:
 
-
 3.The logging protection component in SM:
 
-#What to build:
+**#What to build:**
 The SM infra.
 
 Requirments for secure logging: Create logs of all syscalls executed by applications
@@ -29,13 +29,13 @@ We need to define the way of "protect" , "created" in where? , the detailed sema
 
 
 
-#Reasearch Planning:
+**#Reasearch on:**
 1. The hardware support from the RISC-v
 1)Hypervisor CSRs
 2)PMP: If PMP can protect 
 
 
-#Design Considerations:(Draft, In devising, Progress of thinking)
+**#Design Considerations:(Draft, In devising, process of thinking)**
 1.Responsibilities' dividing of the systems:
 
 1) Should OS partly participates on storing the logs, or leave whole job to SM by trapped into SM?
@@ -62,7 +62,7 @@ We need to define the way of "protect" , "created" in where? , the detailed sema
 Secure the log entires in buffer: PMP, 
 
 
-4. Others considerations:
+5. Others considerations:
 1.Should tHe SM exclusively holds an new page table which is different from the kernel's?
 2.File structure of log files, and data structure of log entires in an log file.
 
@@ -70,15 +70,15 @@ Secure the log entires in buffer: PMP,
 
 
 
-#Chanllenges:
+**#Chanllenges:**
 1.Is the PMP good enough to do the sepration on the main memory in the same as literally physical seprater(Two pieces of Main memory)  , in another words, is this protection gurantees the isolation perfectly?
 
 2.
 
-#Improvements
+**#Improvements**
 
 
-#References:
+**#References:**
 
 
 
