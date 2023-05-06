@@ -9,21 +9,21 @@ Secure Monitor async securely store logs logging by using PMP
 
 **#Component included:**
 
-1.Storage of logs:
--Log entry： <time, syscall number, args, and process name>
--File Struct: <>
+    1.Storage of logs:
+    -Log entry： <time, syscall number, args, and process name>
+    -File Struct: <>
 
-2.Base of SM:
+    2.Base of SM:
 
-3.The logging protection component in SM:
+    3.The logging protection component in SM:
 
-**#What to build:**
-The SM infra.
+    4.Modification on the original kernel.
 
+**#Requirments:**
 Requirments for secure logging: Create logs of all syscalls executed by applications
-1. Logs are protected from malicous OS when OS is compromised.
-2. Should contain: <time, syscall number, args, and process name>.
-3. Call the SM to protect syscall data as soon as it is created
+    1. Logs are protected from malicous OS when OS is compromised.
+    2. Should contain: <time, syscall number, args, and process name>.
+    3. Call the SM to protect syscall data as soon as it is created
 
 Analysis: We need to define the way of "protect" , "created" in where? , the detailed semantic meaning of "As soon as"  in my system.
 
@@ -31,8 +31,8 @@ Analysis: We need to define the way of "protect" , "created" in where? , the det
 
 **#Reasearch on:**
 1. The hardware support from the RISC-v
-1)Hypervisor CSRs
-2)PMP: If PMP can protect 
+    1)Hypervisor CSRs
+    2)PMP: If PMP can protect 
 
 
 
